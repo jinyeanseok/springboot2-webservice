@@ -1,4 +1,30 @@
+# 개발환경
+```
+- intellij Ultimate version
+- Java 8(JDK 1.8)
+- Gradle 4.8
+- JUnit4
+```
+# 단위 테스트의 장점
+```
+- 개발단계 초기에 문제를 발견하게 도와줌.
+- 개발자가 나중에 코드를 리팩토링하거나 라이브러리 업그레이드 등에서 기존 기능이 올바르게 작동하는지 확인 가능.
+- 기능에 대한 불확실성을 감소.
+- 시스템에 대한 실제 문서를 제공 즉, 단위 테스트 자체가 문서로 사용할 수 있음.
+- 개발자가 만든 기능을 안전하게 보호(a,b기능이 있다고 가정하면 b기능을 추가하였는데 b기능은 잘되지만 a기능에 문제가 생김)
 
+```
+
+# 단위 테스트를 배우기전에 진행한 개발 방식
+```
+1. 코드작성
+2. 프로그램(Tomcat)실행
+3. Postman과 같은 API 테스트 도구로 HTTP 요청
+4. 요청 결과를 System.out.println()으로 검증
+5. 결과가 다르면 다시 프로그램(Tomcat)을 중지하고 코드를 수정.
+
+여기서 2 ~ 5는 코드를 수정할 때마다 반복하므로 비효율적
+```
 
 
 # 오류 
@@ -41,5 +67,170 @@ intellij ultimate 2019.3 는 defalt값이 gradle이 5 version
 - ORM은 객체를 매핑하는 것이고, SQL Mapper는 쿼리를 매핑.
 ```
 
-# @annotation 뜻
+# @annotation 용어(lombok포함), code설명
+## 주요 어노테이션을 클래스에 가깝게 위치
+##### @SpringBootApplication
+```
+- springboot의 자동 설정, spring Bean 읽기와 생성을 모두 자동으로 설정.
+- @SpringBootApplication이 있는 위치부터 설정을 읽어가기 때문에 해당 클래스는 항상 프로젝트의 최상단에 위치.
 
+*참고*
+- SpringApplication.run으로 인해 내장 was를 실행 할 수 있음.
+- 내장 was를 실행하게 되면 서버에 톰캣을 설치할 필요가 없고, 스프링부트로 만들어진 Jar파일로 실행하면 됨.
+- 사용하는 이유는 '언제 어디서나 같은 환경에서 스프링 부트를 배포' 할 수 있기 때문.
+```
+
+##### @RestController
+```
+- 컨트롤러를 json을 반환하는 컨트롤러로 만들어줌.
+- 예전에는 @ResponseBody를 각 메소드마다 선언했던 것을 한번에 사용할 수 있게 해준다고 생각하면 됨.
+```
+
+##### @GetMapping
+```
+- HTTP Method인 Get의 요청을 받을 수 있는 API를 만들어줌.
+- 예전에는 @RequestMapping(method = RequestMethod.GET)으로 사용되었지만 이 프로젝트는 /hello로 요청이 오면 문자열 hello를
+반환하는 기능을 가짐
+```
+
+##### @RunWith(SpringRunner.class)
+```
+- 테스트를 진행할 때 JUnit에 내장된 실행자 외에 다른 실행자를 실행시킴.
+- SpringRunner라는 스프링 실행자를 사용.
+- 즉, 스프링 부트 테스트와 JUnit 사이에 연결자 역할.
+```
+
+##### @WebMvcTest
+```
+- 여러 스프링 테스트 어노테이션 중, Web(Spring MVC)에 집중할 수 있는 어노테이션.
+- 선언할 경우 @Controller, @ControllerAdvice 등을 사용할 수 있음
+- 단, @Service, @Component, @Respository등은 사용할 수 없음.
+```
+
+##### @Autowired
+```
+스프링이 관리하는 빈(Bean)을 주입 받음.
+- 간단하게 말하자면 Bean은 자바 객체.
+```
+
+##### private MockMvc mvc
+```
+- 웹 API를 테스트할 때 사용
+- 스프링 MVC 테스트의 시작점
+- 이 클래스를 통해 HTTP GET, POST 등에 대한 API 테스트 가능.
+```
+
+##### mvc.perform(get("/hello))
+```
+- MockMvc를 통해 /hello 주소로 HTTP GET 요청
+- 체이닝이 지원되어 여러 검증 기능을 선언할 수 있음.
+```
+
+##### .andExpect(status().isOk())
+```
+- mvc.perform의 결과를 검증
+- HTTP Header의 status를 검증
+- 흔히 알고 있는 200, 404, 500등의 상태를 검증
+```
+
+##### .andExpect(content().string(hello))
+```
+- mvc.perform의 결과를 검증
+- 응답 본문의 내용을 검증
+- Controller에서 "hello"를 리턴하기 때문에 이 값이 맞는지 검증
+```
+
+##### @Getter (lombok)
+```
+- 선언된 모든 필드의 get 메소드를 생성
+```
+
+##### @RequiredArgsConstrutor
+```
+- 선언된 모든 final 필드가 포함된 생성자를 생성해줌
+- final이 없는 필드는 생성자에 포함되지 않음
+```
+
+##### assertThat
+```
+- assertj라는 테스트 검증 라이브러리의 검증 메소드
+- 검증하고 싶은 대상을 메소드 인자로 받음
+- 메소드 체이닝이 지원되어 isEqualTo와 같이 메소드를 이어서 사용헐 수 있음
+```
+
+##### isEaualTo
+```
+- assertj의 동등 비교 메소드
+- assertThat에 있는 값과 isEqualTo의 값을 비교해서 같을 때만 성공.
+```
+
+##### @RequestParam
+```
+- 외부에서 api로 넘긴 파라미터를 가져오는 어노테이션
+
+(@ReauestParam("name") String name)
+- 이 코드와 같이 @ReauestParam("name")란 이름으로 넘긴 파라미터를 메소드 파라미터(String name)에 저장
+```
+
+##### param
+```
+- api 테스트할 때 사용될 요청 파라미터를 설정
+- 단, 값은 String만 허용
+- 숫자, 날짜도 문자열로 변경
+```
+
+##### jsonPath
+```
+- JSON 응답값을 필드별로 검증할 수 있는 메소드
+- $를 기준으로 필드명을 명시
+```
+
+##### @Entity(JPA의 어노테이션)
+```
+- 테이블과 링크될 클래스
+```
+
+##### @Id
+```
+- 해당 테이블의 PK필드
+```
+
+##### @GeneratedValue
+```
+- PK의 생성 규칙
+```
+
+##### @Colume
+```
+- 굳이 선언하지 않아도 해당 클래스의 필드는 모두 칼럼이 됨.
+- 사용하는 이유는 기본값(default)외에 추가로 변경할 옵션이 있으면 사용
+```
+
+##### @NoArgsConstructor
+```
+- 기본 생성자 자동 추가
+- public Posts() {}와 같은 효과
+```
+
+##### @Getter
+```
+- 클래스 내 모든 필드의 Getter 메소드를 자동생성
+```
+
+##### @Builder
+```
+- 해당 클래스의 빌더 패턴 클래스를 생성
+- 생성자 상단에 선언 시 생성자에 포함된 필드만 빌더에 포함
+```
+
+##### @SpringBootTest
+```
+- @SpringBootTest를 사용 할 경우 H2 데이터베이스를 자동으로 실행
+
+// 실제로 실행된 쿼리를 로그로 보고 싶을 떄
+src/main/resources 디렉터리 아래에 application.properties 파일을 생성하여 다음 옵션 추가
+- spring.jpa.show_sql=true
+
+// 출력되는 쿼리 로그를 MySQL 버전으로 변경
+- spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect 추가
+```
