@@ -32,3 +32,11 @@ intellij ultimate 2019.3 는 defalt값이 gradle이 5 version
 
 -  ./gradlew wrapper --gradle-version 4.10.2 터미널 실행
 ```
+
+### 메서드 위에 어노테이션 확인 잘하기
+
+### ORM(Object Realational Mapping)
+```
+- MyBatis, iBatis는 ORM이 아니라 SQL Mapper.
+- ORM은 객체를 매핑하는 것이고, SQL Mapper는 쿼리를 매핑.
+```
