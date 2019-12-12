@@ -25,3 +25,10 @@ intellij ultimate 2019.3 는 defalt값이 gradle이 5 version
        2.1 @SpringBootApplication으로 인해 스프링부트 자동설정, 스프링 beac 일기와 생성 모두 자동 설정
        2.2 @SpringBootApplication이 있는 위치부터 설정을 읽어나가기에 해당 클래스는 항상 프로젝트 최상단에 위치해야함.
 ```
+
+### lombok test error
+```
+기존 gradle의 디폴트 값이 5.12로 설정
+
+-  ./gradlew wrapper --gradle-version 4.10.2 터미널 실행
+```
