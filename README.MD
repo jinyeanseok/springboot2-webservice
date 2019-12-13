@@ -68,6 +68,11 @@ ApiControllerTest 작성 => 전체 테스트시 HelloControllerTest 실패
 처음 작성 시 WebMvcTest의 범위를 명시해주는게 어떨까합니다.
 
 @WebMvcTest(HelloController.class)
+
+@WebMvcTest(HelloController.class)이 아니라 @WebMvcTest만 하면 나오는 오류
+- org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name
+
+
 ```
 
 ##### 메서드 위에 어노테이션 확인 잘하기
