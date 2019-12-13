@@ -31,4 +31,9 @@ public class Posts {  // 이 클래스는 실제 db의 테이블과 매칭될 �
         this.content = content;
         this.author = author;
     }
+
+    public void update(String title, String content) {   // p.111p update메서드 누락
+        this.title = title;
+        this.content = content;
+    }
 }
