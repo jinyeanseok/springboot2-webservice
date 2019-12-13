@@ -58,6 +58,18 @@ intellij ultimate 2019.3 는 defalt값이 gradle이 5 version
 -  ./gradlew wrapper --gradle-version 4.10.2 터미널 실행
 ```
 
+##### p.111 ApiControllerTest 작성 후 기존 HelloControllerTest 깨짐
+```
+p.111
+ApiControllerTest 작성 => 전체 테스트시 HelloControllerTest 실패
+관련없는 ApiController 의 빈 생성을 시도하면서 연관된 빈을 제대로 주입받지 못해 테스트가 깨짐.
+뒷장에서 추가되는건 확인.
+중간중간 전체 테스트를 돌려보는 분들을 위해서
+처음 작성 시 WebMvcTest의 범위를 명시해주는게 어떨까합니다.
+
+@WebMvcTest(HelloController.class)
+```
+
 ##### 메서드 위에 어노테이션 확인 잘하기
 
 ##### ORM(Object Realational Mapping)

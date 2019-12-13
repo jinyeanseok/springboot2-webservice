@@ -1,4 +1,4 @@
-package com.was.webservice.springboot;
+package com.was.webservice.springboot.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest
+@WebMvcTest(HelloController.class)
 public class HelloControllerTest {
 
     @Autowired
