@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest // HelloController.class를 써주지 않으면 관련 없는 ApiController의 빈 생성을 시도하면서 연관된 빈을 제대로 주입받지 못해 테스트가 꺠짐.
+@WebMvcTest(HelloController.class) // HelloController.class를 써주지 않으면 관련 없는 ApiController의 빈 생성을 시도하면서 연관된 빈을 제대로 주입받지 못해 테스트가 꺠짐.
 public class HelloControllerTest {
 
     @Autowired
