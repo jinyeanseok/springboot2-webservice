@@ -29,4 +29,6 @@ public class PostsApiController {      // 수정, 조회 기능
         return postsService.findById(id);
     }
 
+
+
 }

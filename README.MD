@@ -250,3 +250,21 @@ src/main/resources 디렉터리 아래에 application.properties 파일을 생�
 // 출력되는 쿼리 로그를 MySQL 버전으로 변경
 - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect 추가
 ```
+
+##### JPA 기능까지 한번에 테스트할 때
+```
+@SpringBootTest와 TestRestTemplate을 사용하면 됨.
+
+@Autowired
+    private TestRestTemplate restTemplate;
+
+```
+# 알게된 정보
+##### javascript에서 jsp나 freemaker처럼 자바 코드를 사용할 수 있는지?
+```
+- 프론트엔드의 javascript가 작동하는 영역과 jsp가 작동하는 영역이 다름
+- jsp를 비롯한 서버 템플릿 엔진은 서버에서 구동됨.
+- 서버 템플릿 엔진을 이용한 화면 생성은 서버에서 java 코드로 문자열을 만든 뒤 이 문자열을 hrml로 변환하여 브라우저로 전달
+- 결론은 서버엔진에서 javascript java code를 사용할 때 java 코드를 html로 보내고 javascript 코드는 
+  '단순한 문자열'이 된다.
+```
