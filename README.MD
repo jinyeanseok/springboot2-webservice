@@ -268,3 +268,14 @@ src/main/resources 디렉터리 아래에 application.properties 파일을 생�
 - 결론은 서버엔진에서 javascript java code를 사용할 때 java 코드를 html로 보내고 javascript 코드는 
   '단순한 문자열'이 된다.
 ```
+
+# mustache 문법
+##### {#posts}}
+```
+- posts 라는 List를 순회합니다.
+- Java의 for문과 동일하게 생각하면 됩니다.
+```
+##### {id}}등의 {{변수명}}
+```
+- List에서 뽑아낸 객체의 필드를 사용
+```
