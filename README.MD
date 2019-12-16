@@ -279,3 +279,11 @@ src/main/resources 디렉터리 아래에 application.properties 파일을 생�
 ```
 - List에서 뽑아낸 객체의 필드를 사용
 ```
+
+##### REST에서의 CRUD HTTP Method 매핑
+```
+생성 (Create) - POST
+읽기 (Read) - GET
+수정 (Update) - PUT
+삭제 (Delete) - DELETE
+```
