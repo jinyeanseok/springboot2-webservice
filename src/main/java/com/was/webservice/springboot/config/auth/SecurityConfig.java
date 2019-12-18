@@ -1,6 +1,7 @@
 package com.was.webservice.springboot.config.auth;
 
 
+import com.was.webservice.springboot.config.auth.CustomOAuth2UserService;
 import com.was.webservice.springboot.domain.user.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
