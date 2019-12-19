@@ -298,3 +298,15 @@ git commit -m "fixed untracked files"
 - gitignore가 제대로 작동되지 않아서 ignore처리된 파일이 자꾸 changes에 나올때가 있습니다.
 git의 캐시가 문제가 되는거라 아래 명령어로 캐시 내용을 전부 삭제후 다시 add All해서 커밋하시면 됩니다.
 ---
+
+##### intellij와 RDS mysql 연동할 때의 오류
+```
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+```
+
+##### 해결법
+```
+AWS RDS 데이터베이스 해당 DB식별자 클릭 후 수정.
+보안규칙에 기존에 있던 deafult값 + 해당 DB식별자 추가.
+```
+---
