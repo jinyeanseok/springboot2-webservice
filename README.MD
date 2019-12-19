@@ -300,13 +300,27 @@ git의 캐시가 문제가 되는거라 아래 명령어로 캐시 내용을 전
 ---
 
 ##### intellij와 RDS mysql 연동할 때의 오류
-```
+``
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-```
+``
 
-##### 해결법
+##### 해결
 ```
 AWS RDS 데이터베이스 해당 DB식별자 클릭 후 수정.
 보안규칙에 기존에 있던 deafult값 + 해당 DB식별자 추가.
 ```
 ---
+
+##### 재부팅 후 putty ec2 connection 오류
+![image](https://user-images.githubusercontent.com/49624922/71176782-f3037c80-22ad-11ea-87c5-f868e1f00a9c.png)
+
+#####원인
+```
+해당 오류는 우리 컴퓨터에서 해당 DNS 주소의 서버에 접속이 되지 않아서 발생하는 문제이다. 크게는 서버가 현재 실행되지 않고 있거나,
+서버의 보안 그룹 설정에 의해 현재 위치에서 해당 서버에 접속이 블록된 경우인데, 보통은 후자 문제일 확률이 높다.
+```
+#####해결
+```
+보안 그룹 설정 메뉴에서 Add Rule을 클릭한 뒤 다음과 같이 2가지 룰을 추가
+```
+![image](https://user-images.githubusercontent.com/49624922/71176985-5392b980-22ae-11ea-840a-b9e7fc9b5ada.png)
