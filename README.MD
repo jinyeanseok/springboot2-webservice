@@ -394,7 +394,7 @@ Push to origin/master was rejected
 ```
 ---
 
-
+ㅁ
 ##### 궁금한 것
 ```
 현재 프로젝트를 ec2 서버에 업로드하였고, 로컬에서는 애플리케이션 실행 시 h2-console이 동시에 활성화되었는데
