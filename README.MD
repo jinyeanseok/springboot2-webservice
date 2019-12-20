@@ -384,6 +384,16 @@ git ls-tree HEAD
 ```
 ---
 
+##### git push시 error
+``
+Push to origin/master was rejected
+``
+- terminal에서 git push origin +master
+```
+이렇게 +를 master에 붙여주면 경고는 무시하고 데이터가 손실되도 강제로 push를 한다.
+```
+---
+
 
 ##### 궁금한 것
 ```
