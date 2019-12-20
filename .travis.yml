@@ -1,5 +1,3 @@
-chmod +x gradlew
-
 language: java
 jdk:
   - openjdk8

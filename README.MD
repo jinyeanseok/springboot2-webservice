@@ -342,6 +342,37 @@ nohup java -jar \
     $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
 ```
 
+##### Travis-CI error
+- 오류
+```
+/home/travis/.travis/functions: line 350: ./gradlew: Permission denied
+```
+- 문제
+```
+Windows환경에서는 문제없었지만, Travis-ci가 실행되는 Unix 환경의 exec-permission 시스템의 영향을 받아서 그렇다.
+gradlew파일에 실행 권한을 주어야하는데 Unix 환경이 아니면 어떻게 할지 막막해질 수 있음.
+다행스럽게도 Git에는 이에 대비할 수 있는 기능이 있음.
+```
+- 해결
+
+다음 명령어로 chmod를 변경할 수 있다.
+
+``
+git update-index --chmod=+x gradlew
+``
+하면 적용이 된다.
+
+``
+git commit -m "permission access for travis"
+`` 다음 명령어로 Unix의 chmod를 확인해 볼 수 있다.
+
+``
+git ls-tree HEAD
+``
+다음과 같이 나오는 것을 확인 할 수 있다.
+```
+100755 blob xxxxxxxxxxx gradlew
+```
 ##### 궁금한 것
 ```
 현재 프로젝트를 ec2 서버에 업로드하였고, 로컬에서는 애플리케이션 실행 시 h2-console이 동시에 활성화되었는데
