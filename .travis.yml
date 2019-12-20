@@ -19,3 +19,5 @@ notifications:
   email:
     recipients:
       - wdtcwek11@naver.com
+
+chmod +x gradlew
