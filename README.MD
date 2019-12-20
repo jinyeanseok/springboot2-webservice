@@ -364,7 +364,13 @@ git update-index --chmod=+x gradlew
 
 ``
 git commit -m "permission access for travis"
-`` 다음 명령어로 Unix의 chmod를 확인해 볼 수 있다.
+``
+
+``
+git push origin master
+``
+
+다음 명령어로 Unix의 chmod를 확인해 볼 수 있다.
 
 ``
 git ls-tree HEAD
