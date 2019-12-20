@@ -324,3 +324,20 @@ AWS RDS 데이터베이스 해당 DB식별자 클릭 후 수정.
 보안 그룹 설정 메뉴에서 Add Rule을 클릭한 뒤 다음과 같이 2가지 룰을 추가
 ```
 ![image](https://user-images.githubusercontent.com/49624922/71176985-5392b980-22ae-11ea-840a-b9e7fc9b5ada.png)
+
+
+##### deploy.sh에서 real profile 작성 중 오류
+```
+nohup java -jar \
+    -Dspring.config.location=classpath:/application.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties \
+    -Dspring.profiles.active=real \
+    $REPOSITORY/$JAR_NAME 2>&1 &
+```
+
+##### deploy.sh에서 real profile 작성 중 오류 해결
+```
+nohup java -jar \
+    -Dspring.config.location=classpath:/application.properties,classpath:/application-$IDLE_PROFILE.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties \
+    -Dspring.profiles.active=$IDLE_PROFILE \
+    $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
+```
