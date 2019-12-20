@@ -343,6 +343,8 @@ nohup java -jar \
 ```
 
 ##### Travis-CI error
+
+---
 - 오류
 ```
 /home/travis/.travis/functions: line 350: ./gradlew: Permission denied
@@ -367,7 +369,7 @@ git commit -m "permission access for travis"
 ``
 
 ``
-git push
+git push origin master
 ``
 
 
@@ -380,6 +382,9 @@ git ls-tree HEAD
 ```
 100755 blob xxxxxxxxxxx gradlew
 ```
+---
+
+
 ##### 궁금한 것
 ```
 현재 프로젝트를 ec2 서버에 업로드하였고, 로컬에서는 애플리케이션 실행 시 h2-console이 동시에 활성화되었는데
