@@ -341,3 +341,15 @@ nohup java -jar \
     -Dspring.profiles.active=$IDLE_PROFILE \
     $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
 ```
+
+##### 궁금한 것
+```
+현재 프로젝트를 ec2 서버에 업로드하였고, 로컬에서는 애플리케이션 실행 시 h2-console이 동시에 활성화되었는데
+ec2 서버에 올라간 애플리케이션은 왜 h2-console이 안되는지
+
+사용자 로그인 정보가 rds쪽으로 할 수 있는지
+
+ec2 서버에 올라간 웹서비스에 대한 사용자 로그인정보 어떻게 볼 수 있는지
+EX) GUEST, USER
+
+```

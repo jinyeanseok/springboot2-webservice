@@ -54,22 +54,22 @@ public class OAuthAttributes {
                 .build();
     }
 
-    public User toEntity() {
-        return User.builder()
-                .name(name)
-                .email(email)
-                .picture(picture)
-                .role(Role.GUEST)
-                .build();
-    }
-
-// 403 ERROR 해결
 //    public User toEntity() {
 //        return User.builder()
 //                .name(name)
 //                .email(email)
 //                .picture(picture)
-//                .role(Role.USER)
+//                .role(Role.GUEST)
 //                .build();
 //    }
+
+// 403 ERROR 해결
+    public User toEntity() {
+        return User.builder()
+                .name(name)
+                .email(email)
+                .picture(picture)
+                .role(Role.USER)
+                .build();
+    }
 }
