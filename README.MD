@@ -367,7 +367,7 @@ git commit -m "permission access for travis"
 ``
 
 ``
-git push origin master
+git push
 ``
 
 
