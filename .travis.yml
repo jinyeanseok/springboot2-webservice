@@ -31,6 +31,20 @@ deploy:
     local_dir: deploy # before_deploy에서 생성한 디렉토리
     wait_until-deployed: true
 
+  - provider: codedeploy
+      access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+      secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+
+      bucket: webservice-build # S3 버킷
+      key : webservice.zip # 빌드 파일을 압축해서 전달
+
+      bundle_type: zip # 압축 확장자
+      application: webservice # 웹 콘솔에서 등록한 codedeploy 애플리케이션
+
+      region: ap-northeast-2
+      wait_until-deployed: true
+
+
 # CI 실행 완료 시 메일로 알람
 notifications:
   email:
