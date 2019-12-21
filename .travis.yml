@@ -40,6 +40,9 @@ deploy:
     deployment_group: webservice # 웹 콘솔에서 등록한 CodeDeploy 배포 그룹
     region: ap-northeast-2
     wait-until-deployed: true
+    on:
+      repo: jojoldu/springboot-webservice
+      branch: master
 
 
 # CI 실행 완료시 메일로 알람
