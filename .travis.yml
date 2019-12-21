@@ -41,7 +41,7 @@ deploy:
     region: ap-northeast-2
     wait-until-deployed: true
     on:
-      repo: jojoldu/springboot-webservice
+      repo: jinyeanseok/springboot2-webservice
       branch: master
 
 
