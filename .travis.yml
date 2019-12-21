@@ -40,7 +40,7 @@ deploy:
 
     bundle-type: zip # 압축 확장자
     application: webservice # 웹 콘솔에서 등록한 codedeploy 애플리케이션
-    deployment_group: webservice-group // 웹 콘솔에서 등록한 codedepoly 배포그룹
+    deployment_group: webservice # 웹 콘솔에서 등록한 codedepoly 배포그룹
 
     region: ap-northeast-2
     wait-until-deployed: true
