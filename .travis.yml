@@ -34,7 +34,7 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: webservice1-build
-    key : webservice.zip
+    key : springboot2-webservice.zip
 
     bundle-type: zip
     application: webservice3
