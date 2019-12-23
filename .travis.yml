@@ -35,9 +35,9 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
     bucket: webservice1-build
     key : springboot2-webservice.zip
-    bundle-type: zip
+    bundle_type: zip
     application: webservice3
-    deployment-group: webservice3-group
+    deployment_group: webservice3-group
     region: ap-northeast-2
     wait-until-deployed: true
 
