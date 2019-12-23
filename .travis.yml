@@ -36,9 +36,9 @@ deploy:
     bucket: webservice1-build
     key : webservice.zip
 
-    bundle-type: zip
-    application: webservice2
-    deployment-group: webservice1-group
+    bundle-typ  e: zip
+    application: webservice3
+    deployment-group: webservice3-group
     region: ap-northeast-2
     wait-until-deployed: true
 
