@@ -36,7 +36,7 @@ deploy:
     bucket: webservice1-build
     key : webservice.zip
 
-    bundle-typ  e: zip
+    bundle-type: zip
     application: webservice3
     deployment-group: webservice3-group
     region: ap-northeast-2
