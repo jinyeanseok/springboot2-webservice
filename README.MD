@@ -399,6 +399,13 @@ Push to origin/master was rejected
 ```
 tail -F /var/log/aws/codedeploy-agent/codedeploy-agent.log
 ```
+
+##### git Pulling is not possible because you have unmerged files 오류
+- 로컬 저장소와 원격 저장소 간데 같은 파일이 있는데, 아직 로컬 저장소에서 병합이 되지 않아 생기는 문제
+```
+git status
+git commit -am "커밋 내용"
+```
 ##### 궁금한 것
 ```
 현재 프로젝트를 ec2 서버에 업로드하였고, 로컬에서는 애플리케이션 실행 시 h2-console이 동시에 활성화되었는데
@@ -410,3 +417,4 @@ ec2 서버에 올라간 웹서비스에 대한 사용자 로그인정보 어떻�
 EX) GUEST, USER
 
 ```
+
