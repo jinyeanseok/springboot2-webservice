@@ -37,7 +37,6 @@ deploy:
 
     bucket: springboot-webservice-build
     key: springboot2-webservice.zip
-
     bundle_type: zip
     application: springboot2-webservice
     deployment_group: springboot2-webservice-group
