@@ -35,7 +35,6 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
     bucket: webservice1-build
     key : springboot2-webservice.zip
-
     bundle-type: zip
     application: webservice3
     deployment-group: webservice3-group
