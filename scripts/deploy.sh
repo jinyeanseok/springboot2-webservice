@@ -1,4 +1,5 @@
 #!/bin/bash
+JAVA_OPTS="-Djava.awt.headless=true -server -Xms256m -Xmx512m -XX:NewSize=256m -XX:MaxNewSize=256m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+DisableExplicitGC -Dfile.encoding=utf-8"
 
 REPOSITORY=/home/ec2-user/app/step2
 PROJECT_NAME=springboot2-webservice
