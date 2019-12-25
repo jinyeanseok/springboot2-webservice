@@ -433,6 +433,11 @@ EX) GUEST, USER
       $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
 ```
 
+##### home page title 변경 시 오류
+```
+IndexControllerTest의 
+assertThat(body).contains("~~~~"); 를 title과 일치 시켜야 test에 통과하여 무중단 배포 성공
+```
 before_deploy:
   - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
   - cp scripts/*.sh before-deploy/
