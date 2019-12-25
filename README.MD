@@ -417,7 +417,21 @@ ec2 서버에 올라간 웹서비스에 대한 사용자 로그인정보 어떻�
 EX) GUEST, USER
 
 ```
-
+##### step2 배포 오류 해결
+- 기존 code
+```
+  nohup java -jar \
+        -Dspring.config.location=classpath:/application.properties,classpath:/application-real.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties \
+        -Dspring.profiles.active=real \
+        $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
+```
+- 해결한 code
+```
+  nohup java -jar \
+      -Dspring.config.location=classpath:/application.properties,classpath:/application-$IDLE_PROFILE.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties \
+      -Dspring.profiles.active=$IDLE_PROFILE \
+      $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
+```
 
 before_deploy:
   - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
@@ -427,3 +441,5 @@ before_deploy:
   - cd before-deploy && zip -r before-deploy * # before-deploy로 이동후 전체 압축
   - cd ../ && mkdir -p deploy # 상위 디렉토리로 이동후 deploy 디렉토리 생성
   - mv before-deploy/before-deploy.zip deploy/springboot2-webservice.zip # deploy로 zip파일 이동
+  
+  
